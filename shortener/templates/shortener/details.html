@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Link Stats</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 50px auto; }
+        .stats-box { background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 20px; border-radius: 8px; }
+        .stats-box a { word-break: break-all; }
+        .stats-box p { font-size: 1.1em; }
+    </style>
+</head>
+<body>
+    <h1>Link Statistics </h1>
+    <div class="stats-box">
+        <p><strong>Short URL:</strong> {{ request.scheme }}://{{ request.get_host }}/{{ entry.short_code }}</p>
+        <p><strong>Original URL:</strong> <a href="{{ entry.original_url }}">{{ entry.original_url }}</a></p>
+        <p><strong>Clicks:</strong> {{ entry.click_count }}</p>
+        <p><strong>Created:</strong> {{ entry.created_at|date:"F d, Y P" }}</p>
+    </div>
+    <br>
+    <a href="{% url 'shortener:home' %}">Shorten another URL</a>
+</body>
+</html>

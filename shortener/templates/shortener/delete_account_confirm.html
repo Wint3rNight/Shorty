@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Delete Your Account</h2>
+  <p style="color: red; font-weight: bold;">
+    Are you sure you want to delete your account? This action is irreversible and will permanently delete all of your shortened URLs.
+  </p>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, I'm sure. Delete my account.</button>
+    <a href="{% url 'shortener:dashboard' %}">Cancel</a>
+  </form>
+{% endblock %}

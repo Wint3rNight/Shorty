@@ -1,0 +1,10 @@
+CREATE USER shortener_user WITH PASSWORD 'password123';
+
+ALTER ROLE shortener_user SET client_encoding TO 'utf8';
+ALTER ROLE shortener_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE shortener_user SET timezone TO 'UTC';
+
+
+CREATE DATABASE shortener_db OWNER shortener_user;
+
+\q
